@@ -51,7 +51,6 @@ export const Select = (props: SelectProps) => {
       ref={containerRef}
       className={cx(InputStyles.container, props.className)}
     >
-      <legend>{props.name}</legend>
       <div className={styles.inputWrapper}>
         <input
           type="text"
@@ -87,6 +86,7 @@ export const Select = (props: SelectProps) => {
           )}
         </div>
       )}
+      <legend>{props.name}</legend>
       {props.error && <span className={InputStyles.error}>{props.error}</span>}
     </div>
   );

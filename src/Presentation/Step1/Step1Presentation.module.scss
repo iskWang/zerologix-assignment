@@ -18,6 +18,10 @@
 
 .formContainer {
   @apply bg-white 
+  flex
+  flex-row
+  flex-wrap
+  justify-between
   shadow 
   rounded-lg 
   p-6;

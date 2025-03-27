@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import styles from "./Step2Presentation.module.scss";
+import FileUpload from "@/Component/FileUpload";
+import Button from "@/Component/Button";
 
 export const Step2Presentation = () => {
   return (
@@ -7,18 +8,28 @@ export const Step2Presentation = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>Step 2: Document Upload</h1>
 
-        {/* Upload form will be added here */}
         <div className={styles.formContainer}>
-          <p>Upload form content will be added here</p>
+          <FileUpload
+            name="ID Card Front"
+            maxSize={5 * 1024 * 1024} // 5MB
+          />
+          <FileUpload
+            name="ID Card Back"
+            maxSize={5 * 1024 * 1024} // 5MB
+          />
+          <FileUpload
+            name="Additional Documents"
+            maxSize={10 * 1024 * 1024} // 10MB
+          />
         </div>
 
         <div className={styles.navigation}>
-          <Link to="/step-1" className={styles.backButton}>
+          <Button href="/step-1" className={styles.backButton}>
             Previous Step
-          </Link>
-          <Link to="/step-3" className={styles.nextButton}>
+          </Button>
+          <Button href="/step-3" className={styles.nextButton}>
             Next Step
-          </Link>
+          </Button>
         </div>
       </div>
     </div>

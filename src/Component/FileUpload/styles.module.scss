@@ -1,0 +1,68 @@
+.fileUpload {
+  @apply relative;
+
+  .input {
+    @apply hidden;
+  }
+
+  .content {
+    @apply w-[20.9375rem]
+    h-[3.625rem]
+    rounded-[0.5rem]
+    px-[0.75rem]
+    bg-white
+    border-[0.1875rem]
+    flex
+    items-center
+    gap-4;
+  }
+
+  .button {
+    @apply px-4
+    py-2
+    bg-primary-500
+    text-white
+    rounded-md
+    hover:bg-primary-600
+    transition-colors;
+  }
+
+  .info {
+    @apply text-xs
+    text-gray-500
+    flex-1
+    truncate;
+
+    p {
+      @apply mb-0.5;
+    }
+  }
+
+  .fileInfo {
+    @apply flex
+    items-center
+    gap-2;
+  }
+
+  .fileName {
+    @apply font-medium
+    text-gray-700
+    truncate
+    flex-1;
+  }
+
+  .deleteButton {
+    @apply text-gray-400
+    hover:text-gray-600
+    text-lg
+    font-bold
+    w-6
+    h-6
+    flex
+    items-center
+    justify-center
+    rounded-full
+    hover:bg-gray-100
+    transition-colors;
+  }
+}

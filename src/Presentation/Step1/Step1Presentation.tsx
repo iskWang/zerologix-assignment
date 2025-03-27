@@ -2,7 +2,7 @@ import styles from "./Step1Presentation.module.scss";
 import Input from "@/Component/Input";
 import DatePicker from "@/Component/DatePicker";
 import Select from "@/Component/Select";
-import { Button } from "@/Component/Button";
+import Button from "@/Component/Button";
 
 const genderOptions = [
   { label: "Male", value: "male" },
@@ -20,9 +20,10 @@ export const Step1Presentation = () => {
           <Input name="Name" />
           <Input name="Email" />
           <Input name="Phone" />
+          <Input name="Address" />
           <Select name="Nationality" />
           <Select name="Gender" options={genderOptions} />
-          <Input name="Address" />
+
           <DatePicker name="Date of Birth" />
         </div>
 

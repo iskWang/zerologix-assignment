@@ -1,43 +1,53 @@
 .container {
-  @apply relative my-[24px];
+  @apply relative 
+  w-[20rem]
+  my-4;
 
   legend {
     @apply absolute 
-    top-[calc(-18px/2)]
-    left-[16px] 
-    leading-[18px]
-    px-[4px]
-    text-[12px]
+    top-[calc(-1.125rem/2)]
+    left-[1rem] 
+    leading-[1.125rem]
+    px-[0.25rem]
+    text-[0.75rem]
     bg-white
     capitalize
     z-[1];
+    transition: all 0.3s ease;
   }
 
   input {
-    @apply w-[335px] 
-    h-[58px] 
-    rounded-[8px]
-    px-[12px]
+    @apply w-[100%]
+    h-[3.625rem] 
+    rounded-[0.5rem]
+    px-[0.75rem]
     bg-white
-    border-[3px]
+    border-[0.1875rem]
     focus:outline-none
     focus:border-[#00A3FF];
+
+    &:focus + legend {
+      @apply top-[-1.2rem] 
+      left-0 
+      bg-transparent;
+      transition: all 0.3s ease;
+    }
   }
 
   .errorList {
     @apply absolute
-    mt-[20px] 
-    px-[12px] 
-    py-[8px]
-    rounded-[8px]
+    mt-[1.25rem] 
+    px-[0.75rem] 
+    py-[0.5rem]
+    rounded-[0.5rem]
     bg-[#242424];
   }
 
   .errorItem {
     @apply w-[100%] 
-      py-[8px]
+      py-[0.5rem]
       inline-flex
-      text-[14px] 
+      text-[0.875rem] 
       text-white;
 
     .icon {

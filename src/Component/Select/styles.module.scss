@@ -1,25 +1,24 @@
 .inputWrapper {
-  @apply relative
-  w-[335px];
+  @apply relative;
 
   .input {
-    @apply h-[58px] 
-    rounded-[8px]
-    px-[12px]
+    @apply h-[3.625rem] 
+    rounded-[0.5rem]
+    px-[0.75rem]
     bg-white
-    border-[3px]
+    border-[0.1875rem]
     focus:outline-none
     focus:border-[#00A3FF];
   }
 
   .arrow {
     @apply absolute 
-    right-[16px]
+    right-[1rem]
     top-[50%]
     transform
     -translate-y-[50%]
     cursor-pointer
-    text-[12px]
+    text-[0.75rem]
     text-gray-500
     transition-transform;
 
@@ -31,13 +30,13 @@
 
 .dropdown {
   @apply absolute 
-  w-[335px]
-  max-h-[240px]
+  w-full
+  max-h-[15rem]
   mt-2
   py-2
   bg-white
   border
-  rounded-[8px]
+  rounded-[0.5rem]
   shadow-lg
   overflow-y-auto
   z-50;
