@@ -16,6 +16,7 @@
     "@tailwindcss/postcss": "^4.0.17",
     "classnames": "^2.5.1",
     "react": "^19.0.0",
+    "react-datepicker": "^8.2.1",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.0"
   },
@@ -25,6 +26,7 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.10",
+    "@types/react-datepicker": "^7.0.0",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.14",

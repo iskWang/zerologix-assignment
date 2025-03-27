@@ -1,27 +1,52 @@
 .container {
-  @apply min-h-screen bg-gray-50 py-8;
+  @apply min-h-screen 
+  bg-gray-50 
+  py-8;
 }
 
 .content {
-  @apply max-w-3xl mx-auto px-4;
+  @apply max-w-3xl 
+  mx-auto 
+  px-4;
 }
 
 .title {
-  @apply text-2xl font-bold mb-8;
+  @apply text-2xl 
+  font-bold 
+  mb-8;
 }
 
 .formContainer {
-  @apply bg-white shadow rounded-lg p-6;
+  @apply bg-white 
+  shadow 
+  rounded-lg 
+  p-6;
 }
 
 .navigation {
-  @apply mt-6 flex justify-between;
+  @apply mt-6 
+  flex 
+  justify-between;
 }
 
 .backButton {
-  @apply px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors;
+  @apply px-4 
+  py-2 
+  bg-white 
+  border 
+  border-gray-300 
+  text-gray-700 
+  rounded-md 
+  hover:bg-gray-50 
+  transition-colors;
 }
 
 .submitButton {
-  @apply px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors;
+  @apply px-4 
+  py-2 
+  bg-primary-500 
+  text-white 
+  rounded-md 
+  hover:bg-primary-600 
+  transition-colors;
 }

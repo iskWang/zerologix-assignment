@@ -1,0 +1,47 @@
+.container {
+  @apply relative my-[24px];
+
+  legend {
+    @apply absolute 
+    top-[calc(-18px/2)]
+    left-[16px] 
+    leading-[18px]
+    px-[4px]
+    text-[12px]
+    bg-white
+    capitalize
+    z-[1];
+  }
+
+  input {
+    @apply w-[335px] 
+    h-[58px] 
+    rounded-[8px]
+    px-[12px]
+    bg-white
+    border-[3px]
+    focus:outline-none
+    focus:border-[#00A3FF];
+  }
+
+  .errorList {
+    @apply absolute
+    mt-[20px] 
+    px-[12px] 
+    py-[8px]
+    rounded-[8px]
+    bg-[#242424];
+  }
+
+  .errorItem {
+    @apply w-[100%] 
+      py-[8px]
+      inline-flex
+      text-[14px] 
+      text-white;
+
+    .icon {
+      @apply mr-[8px];
+    }
+  }
+}

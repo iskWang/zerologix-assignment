@@ -1,0 +1,62 @@
+.inputWrapper {
+  @apply relative
+  w-[335px];
+
+  .input {
+    @apply h-[58px] 
+    rounded-[8px]
+    px-[12px]
+    bg-white
+    border-[3px]
+    focus:outline-none
+    focus:border-[#00A3FF];
+  }
+
+  .arrow {
+    @apply absolute 
+    right-[16px]
+    top-[50%]
+    transform
+    -translate-y-[50%]
+    cursor-pointer
+    text-[12px]
+    text-gray-500
+    transition-transform;
+
+    &.open {
+      @apply rotate-180;
+    }
+  }
+}
+
+.dropdown {
+  @apply absolute 
+  w-[335px]
+  max-h-[240px]
+  mt-2
+  py-2
+  bg-white
+  border
+  rounded-[8px]
+  shadow-lg
+  overflow-y-auto
+  z-50;
+
+  .option {
+    @apply px-4 
+    py-2 
+    cursor-pointer 
+    hover:bg-gray-100;
+
+    &.selected {
+      @apply bg-gray-50;
+    }
+  }
+
+  .noResults {
+    @apply px-4 
+    py-2 
+    text-gray-500 
+    text-center;
+  }
+}
