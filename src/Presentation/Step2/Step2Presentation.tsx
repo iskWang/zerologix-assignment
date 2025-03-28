@@ -33,8 +33,9 @@ export const Step2Presentation = () => {
             <FileUpload
               label="ID Card Front"
               maxSize={5 * 1024 * 1024}
-              onChange={(files) =>
-                setValue("idCardFront", files?.[0] || null, {
+              value={documentsForm.watch("idCardFront")}
+              onChange={(file) =>
+                setValue("idCardFront", file, {
                   shouldValidate: true,
                 })
               }
@@ -43,8 +44,9 @@ export const Step2Presentation = () => {
             <FileUpload
               label="ID Card Back"
               maxSize={5 * 1024 * 1024}
-              onChange={(files) =>
-                setValue("idCardBack", files?.[0] || null, {
+              value={documentsForm.watch("idCardBack")}
+              onChange={(file) =>
+                setValue("idCardBack", file, {
                   shouldValidate: true,
                 })
               }
@@ -54,8 +56,9 @@ export const Step2Presentation = () => {
               label="Additional Documents"
               maxSize={10 * 1024 * 1024}
               multiple
+              value={documentsForm.watch("additionalDoc")}
               onChange={(files) =>
-                setValue("additionalDoc", files, { shouldValidate: true })
+                setValue("additionalDoc", Array.isArray(files) ? files : null, { shouldValidate: true })
               }
               error={errors.additionalDoc?.message}
             />

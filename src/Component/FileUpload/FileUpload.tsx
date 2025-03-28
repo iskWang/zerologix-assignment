@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import cx from "classnames";
 import { FileUploadProps } from "./types";
 import InputStyles from "../Input/styles.module.scss";
@@ -14,10 +14,17 @@ const formatFileSize = (bytes: number) => {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
 };
 
-export const FileUpload = (props: FileUploadProps) => {
+export const FileUpload = ({
+  value,
+  label,
+  maxSize = DEFAULT_MAX_SIZE,
+  multiple,
+  error,
+  onChange,
+  className,
+}: FileUploadProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
-  const maxSize = props.maxSize || DEFAULT_MAX_SIZE;
+  const files = value ? (Array.isArray(value) ? value : [value]) : [];
 
   const handleClick = () => {
     inputRef.current?.click();
@@ -28,17 +35,14 @@ export const FileUpload = (props: FileUploadProps) => {
     const validFiles = selectedFiles.filter((file) => file.size <= maxSize);
 
     if (validFiles.length === 0) {
-      setFiles([]);
-      props.onChange?.(null);
+      onChange?.(null);
       return;
     }
 
-    if (props.multiple) {
-      setFiles(validFiles);
-      props.onChange?.(validFiles);
+    if (multiple) {
+      onChange?.(validFiles);
     } else {
-      setFiles([validFiles[0]]);
-      props.onChange?.([validFiles[0]]);
+      onChange?.(validFiles[0]);
     }
   };
 
@@ -47,14 +51,21 @@ export const FileUpload = (props: FileUploadProps) => {
     if (inputRef.current) {
       inputRef.current.value = "";
     }
-    setFiles(newFiles);
-    props.onChange?.(newFiles.length > 0 ? newFiles : null);
+
+    if (!newFiles || newFiles.length === 0) {
+      onChange?.(null);
+      return;
+    }
+
+    if (multiple) {
+      onChange?.(newFiles);
+    } else {
+      onChange?.(newFiles[0]);
+    }
   };
 
   return (
-    <div
-      className={cx(InputStyles.container, styles.container, props.className)}
-    >
+    <div className={cx(InputStyles.container, styles.container, className)}>
       <div className={styles.fileUpload}>
         <input
           ref={inputRef}
@@ -63,17 +74,20 @@ export const FileUpload = (props: FileUploadProps) => {
           accept={ACCEPTED_TYPES}
           onChange={handleChange}
           className={styles.input}
-          multiple={props.multiple}
+          multiple={multiple}
         />
         <div className={styles.content}>
           <button type="button" onClick={handleClick} className={styles.button}>
-            Choose {props.multiple ? "Files" : "File"}
+            Choose {multiple ? "Files" : "File"}
           </button>
           <div className={styles.info}>
             {files.length > 0 ? (
               <div className={styles.fileList}>
                 {files.map((file, index) => (
-                  <div key={`${file.name}-${index}`} className={styles.fileInfo}>
+                  <div
+                    key={`${file.name}-${index}`}
+                    className={styles.fileInfo}
+                  >
                     <p className={styles.fileName}>{file.name}</p>
                     <button
                       type="button"
@@ -90,14 +104,14 @@ export const FileUpload = (props: FileUploadProps) => {
               <>
                 <p>Supported formats: JPG, PNG, PDF</p>
                 <p>Maximum file size: {formatFileSize(maxSize)}</p>
-                {props.multiple && <p>You can select multiple files</p>}
+                {multiple && <p>You can select multiple files</p>}
               </>
             )}
           </div>
         </div>
       </div>
-      <legend>{props.label}</legend>
-      {props.error && <span className={InputStyles.error}>{props.error}</span>}
+      <legend>{label}</legend>
+      {error && <span className={InputStyles.error}>{error}</span>}
     </div>
   );
 };

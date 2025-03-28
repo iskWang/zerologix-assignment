@@ -34,7 +34,7 @@ export const KYCFormContainer = ({ children }: KYCFormContainerProps) => {
       address: "",
       nationality: "",
       gender: "",
-      dateOfBirth: new Date(),
+      dateOfBirth: new Date().toISOString(),
     },
     documents: {
       idCardFront: null,

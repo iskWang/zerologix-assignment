@@ -50,6 +50,7 @@ export const Step1Presentation = () => {
             <Select
               name="Nationality"
               options={nationalityOptions}
+              value={basicInfoForm.watch("nationality")}
               onChange={(value) => {
                 setValue("nationality", value, { shouldValidate: true });
               }}
@@ -58,15 +59,15 @@ export const Step1Presentation = () => {
             <Select
               name="Gender"
               options={genderOptions}
+              value={basicInfoForm.watch("gender")}
               onChange={(value) => {
                 setValue("gender", value, { shouldValidate: true });
               }}
               error={errors.gender?.message}
             />
             <DatePicker
-              {...register("dateOfBirth", {
-                setValueAs: (value: string) => new Date(value),
-              })}
+              {...register("dateOfBirth")}
+              value={basicInfoForm.watch("dateOfBirth")}
               label="Date of Birth"
               error={errors.dateOfBirth?.message}
             />

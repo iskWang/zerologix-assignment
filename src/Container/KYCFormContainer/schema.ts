@@ -11,13 +11,16 @@ export const basicInfoSchema = z.object({
   address: z.string().min(1, "Address is required"),
   nationality: z.string().min(1, "Nationality is required"),
   gender: z.string().optional(),
-  dateOfBirth: z.date().refine(
-    (date) => {
-      const age = differenceInYears(new Date(), date);
-      return age >= 18 && age <= 85;
-    },
-    { message: "Age must be between 18 and 85 years" }
-  ),
+  dateOfBirth: z
+    .string()
+    .date()
+    .refine(
+      (date) => {
+        const age = differenceInYears(new Date(), date);
+        return age >= 18 && age <= 85;
+      },
+      { message: "Age must be between 18 and 85 years" }
+    ),
 });
 
 const createFileSchema = (
