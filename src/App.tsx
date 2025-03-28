@@ -11,7 +11,8 @@ import Step2Scene from "@/Scene/Step2/Step2Scene";
 import Step3Scene from "@/Scene/Step3/Step3Scene";
 import { KYCFormContainer } from "./Container/KYCFormContainer";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
   {
     path: "/",
     element: <Navigate to="/step-1" replace />,
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
     path: "/step-3",
     element: <Step3Scene />,
   },
-]);
+  ],
+  {
+    basename: "/zerologix-assignment",
+  }
+);
 
 const App = () => {
   return (
