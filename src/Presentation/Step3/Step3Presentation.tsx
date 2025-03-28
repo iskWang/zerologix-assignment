@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import StepIndicator from "@/Component/StepIndicator";
 import styles from "./Step3Presentation.module.scss";
+import Button from "@/Component/Button";
 
 export const Step3Presentation = () => {
   return (
@@ -14,15 +14,12 @@ export const Step3Presentation = () => {
         </div>
 
         <div className={styles.navigation}>
-          <Link to="/step-2" className={styles.backButton}>
+          <Button href="/step-2" className={styles.backButton}>
             Previous Step
-          </Link>
-          <button
-            className={styles.submitButton}
-            onClick={() => alert("Form submitted!")}
-          >
-            Submit
-          </button>
+          </Button>
+          <Button href="/step-3" className={styles.nextButton}>
+            Next Step
+          </Button>
         </div>
       </div>
     </div>
