@@ -1,0 +1,59 @@
+.container {
+  @apply flex 
+  items-center 
+  justify-center 
+  gap-4
+  my-4;
+}
+
+.step {
+  @apply flex flex-col items-center gap-2;
+  flex: 1;
+
+  &:not(:last-child) {
+    @apply relative;
+
+    &::after {
+      @apply content-[''] absolute h-[0.125rem] bg-gray-200;
+      width: calc(100% - 2rem);
+      left: 60%;
+      top: 1rem;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.circle {
+  @apply w-8 h-8 rounded-full 
+    flex items-center justify-center
+    border-2 text-sm font-medium
+    transition-colors;
+
+  &.completed {
+    @apply border-gray-400 text-gray-400;
+
+    & + .step::after {
+      @apply bg-gray-400;
+    }
+  }
+
+  &.current {
+    @apply border-primary-500 text-primary-500;
+
+    & + .step::after {
+      @apply bg-primary-500;
+    }
+  }
+
+  &.upcoming {
+    @apply border-gray-200 text-gray-300;
+  }
+}
+
+.label {
+  @apply text-sm text-gray-600;
+
+  &.current {
+    @apply text-primary-500 font-medium;
+  }
+}

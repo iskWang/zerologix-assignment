@@ -2,6 +2,7 @@ import styles from "./Step1Presentation.module.scss";
 import Input from "@/Component/Input";
 import DatePicker from "@/Component/DatePicker";
 import Select from "@/Component/Select";
+import StepIndicator from "@/Component/StepIndicator";
 import Button from "@/Component/Button";
 
 const genderOptions = [
@@ -14,7 +15,7 @@ export const Step1Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Step 1: Basic Information</h1>
+        <StepIndicator currentStep={1} />
 
         <div className={styles.formContainer}>
           <Input name="Name" />

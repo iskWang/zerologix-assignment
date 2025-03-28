@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import StepIndicator from "@/Component/StepIndicator";
 import styles from "./Step3Presentation.module.scss";
 
 export const Step3Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Step 3: Confirmation</h1>
+        <StepIndicator currentStep={3} />
 
         {/* Preview content will be added here */}
         <div className={styles.formContainer}>

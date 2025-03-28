@@ -1,12 +1,13 @@
 import styles from "./Step2Presentation.module.scss";
 import FileUpload from "@/Component/FileUpload";
 import Button from "@/Component/Button";
+import StepIndicator from "@/Component/StepIndicator";
 
 export const Step2Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Step 2: Document Upload</h1>
+        <StepIndicator currentStep={2} />
 
         <div className={styles.formContainer}>
           <FileUpload
