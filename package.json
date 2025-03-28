@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "gh-pages:404": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
