@@ -1,7 +1,8 @@
 export type FileUploadProps = {
-  name?: string;
+  label?: string;
   maxSize?: number; // 以 bytes 為單位，預設 5MB
   error?: string;
-  onChange?: (file: File | null) => void;
+  multiple?: boolean;
+  onChange?: (files: File[] | null) => void;
   className?: string;
 };
