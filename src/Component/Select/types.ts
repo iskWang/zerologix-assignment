@@ -6,8 +6,8 @@ export type SelectOption = {
 export type SelectProps = {
   name?: string;
   options?: SelectOption[];
-  value?: SelectOption;
-  onChange?: (option: SelectOption) => void;
+  value?: string;
+  onChange?: (value: string) => void;
   error?: string;
   className?: string;
   placeholder?: string;

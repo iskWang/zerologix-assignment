@@ -9,6 +9,7 @@ import "./App.css";
 import Step1Scene from "@/Scene/Step1/Step1Scene";
 import Step2Scene from "@/Scene/Step2/Step2Scene";
 import Step3Scene from "@/Scene/Step3/Step3Scene";
+import { KYCFormContainer } from "./Container/KYCFormContainer";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <KYCFormContainer>
+      <RouterProvider router={router} />
+    </KYCFormContainer>
+  );
 };
 
 export default App;

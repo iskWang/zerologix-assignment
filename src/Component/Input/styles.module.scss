@@ -39,7 +39,7 @@
     mt-[1.25rem] 
     px-[0.75rem] 
     py-[0.5rem]
-    rounded-[0.5rem]
+    rounded-[0.5rem] 
     bg-[#242424];
   }
 
@@ -54,4 +54,8 @@
       @apply mr-[8px];
     }
   }
+}
+
+.error {
+  @apply text-red-500;
 }

@@ -1,20 +1,18 @@
+import React, { ForwardedRef } from "react";
 import cx from "classnames";
 import { DatePickerProps } from "./types";
 import InputStyles from "../Input/styles.module.scss";
 
-export const DatePicker = ({ className, error, ...props }: DatePickerProps) => {
-  return (
-    <div className={cx(InputStyles.container, className)}>
-      <legend>{props.name}</legend>
-      <input
-        type="date"
-        pattern="\d{4}-\d{2}-\d{2}"
-        placeholder="YYYY-MM-DD"
-        {...props}
-      />
-      {error && <span className={InputStyles.error}>{error}</span>}
-    </div>
-  );
-};
+export const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>(
+  ({ className, error, ...rest }, ref: ForwardedRef<HTMLInputElement>) => {
+    return (
+      <div className={cx(InputStyles.container, className)}>
+        <legend>{rest.label}</legend>
+        <input type="date" placeholder="YYYY-MM-DD" {...rest} ref={ref} />
+        {error && <span className={InputStyles.error}>{error}</span>}
+      </div>
+    );
+  }
+);
 
 export default DatePicker;

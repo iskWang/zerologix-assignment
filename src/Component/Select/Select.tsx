@@ -3,16 +3,33 @@ import cx from "classnames";
 import { SelectProps, SelectOption } from "./types";
 import InputStyles from "../Input/styles.module.scss";
 import styles from "./styles.module.scss";
-import nationalityJson from "./nationality.json";
 
 export const Select = (props: SelectProps) => {
-  const options =
-    props.options ||
-    Object.entries(nationalityJson).map(([value, label]) => ({ value, label }));
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState(options);
+  const [userInput, setUserInput] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const searchTerm = props.value
+    ? props.options?.find((opt) => opt.value === props.value)?.label ||
+      props.value
+    : userInput;
+
+  const filteredOptions =
+    props.options?.filter((option) =>
+      option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.onChange?.(e.target.value);
+    setUserInput(e.target.value);
+    setIsOpen(true);
+  };
+
+  const handleOptionClick = (option: SelectOption) => {
+    props.onChange?.(option.value);
+    setUserInput(option.label);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -27,24 +44,6 @@ export const Select = (props: SelectProps) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  useEffect(() => {
-    const filtered = options.filter((option) =>
-      option.label.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredOptions(filtered);
-  }, [searchTerm, props.options]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    setIsOpen(true);
-  };
-
-  const handleOptionClick = (option: SelectOption) => {
-    props.onChange?.(option);
-    setSearchTerm(option.label);
-    setIsOpen(false);
-  };
 
   return (
     <div
@@ -74,7 +73,7 @@ export const Select = (props: SelectProps) => {
               <div
                 key={option.value}
                 className={cx(styles.option, {
-                  [styles.selected]: props.value?.value === option.value,
+                  [styles.selected]: props.value === option.value,
                 })}
                 onClick={() => handleOptionClick(option)}
               >
