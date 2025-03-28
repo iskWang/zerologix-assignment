@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import cx from "classnames";
 import { FileUploadProps } from "./types";
-import styles from "./styles.module.scss";
 import InputStyles from "../Input/styles.module.scss";
+import styles from "./styles.module.scss";
 
 const DEFAULT_MAX_SIZE = 5 * 1024 * 1024; // 5MB
 const ACCEPTED_TYPES = ".jpg,.png,.pdf";
@@ -49,7 +49,9 @@ export const FileUpload = (props: FileUploadProps) => {
   };
 
   return (
-    <div className={cx(InputStyles.container, props.className)}>
+    <div
+      className={cx(InputStyles.container, styles.container, props.className)}
+    >
       <div className={styles.fileUpload}>
         <input
           ref={inputRef}
