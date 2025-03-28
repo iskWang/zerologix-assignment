@@ -5,7 +5,7 @@ import Input from "@/Component/Input";
 import DatePicker from "@/Component/DatePicker";
 import Select from "@/Component/Select";
 import Button from "@/Component/Button";
-import StepIndicator from "@/Component/StepIndicator";
+import StepIndicator, { StepEnum } from "@/Component/StepIndicator";
 import { useKYCFormContext } from "@/Container/KYCFormContainer";
 import nationalityJson from "@/Lib/nationality.json";
 
@@ -39,7 +39,7 @@ export const Step1Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <StepIndicator currentStep={1} />
+        <StepIndicator currentStep={StepEnum.NOT_STARTED} />
 
         <form onSubmit={onSubmit}>
           <div className={styles.formContainer}>

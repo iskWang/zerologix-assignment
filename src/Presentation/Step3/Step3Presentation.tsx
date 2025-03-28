@@ -1,4 +1,4 @@
-import StepIndicator from "@/Component/StepIndicator";
+import StepIndicator, { StepEnum } from "@/Component/StepIndicator";
 import styles from "./Step3Presentation.module.scss";
 import Button from "@/Component/Button";
 
@@ -6,7 +6,7 @@ export const Step3Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <StepIndicator currentStep={3} />
+        <StepIndicator currentStep={StepEnum.COMPLETED} />
 
         {/* Preview content will be added here */}
         <div className={styles.formContainer}>

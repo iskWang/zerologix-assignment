@@ -1,11 +1,11 @@
 import cx from "classnames";
-import { Step, StepIndicatorProps } from "./types";
+import { StepEnum, Step, StepIndicatorProps } from "./types";
 import styles from "./styles.module.scss";
 
 const STEPS = [
-  { step: 1 as Step, label: "Basic Info" },
-  { step: 2 as Step, label: "Document Upload" },
-  { step: 3 as Step, label: "Preview" },
+  { step: StepEnum.NOT_STARTED, label: "Basic Info" },
+  { step: StepEnum.IN_PROGRESS, label: "Document Upload" },
+  { step: StepEnum.COMPLETED, label: "Preview" },
 ] as const;
 
 const StepIndicator = ({ currentStep, className }: StepIndicatorProps) => {

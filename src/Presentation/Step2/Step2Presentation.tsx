@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Step2Presentation.module.scss";
 import FileUpload from "@/Component/FileUpload";
 import Button from "@/Component/Button";
-import StepIndicator from "@/Component/StepIndicator";
+import StepIndicator, { StepEnum } from "@/Component/StepIndicator";
 import { useKYCFormContext } from "@/Container/KYCFormContainer";
 
 export const Step2Presentation = () => {
@@ -26,7 +26,7 @@ export const Step2Presentation = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <StepIndicator currentStep={2} />
+        <StepIndicator currentStep={StepEnum.IN_PROGRESS} />
 
         <form onSubmit={onSubmit}>
           <div className={styles.formContainer}>
@@ -34,7 +34,9 @@ export const Step2Presentation = () => {
               label="ID Card Front"
               maxSize={5 * 1024 * 1024}
               onChange={(files) =>
-                setValue("idCardFront", files?.[0] || null, { shouldValidate: true })
+                setValue("idCardFront", files?.[0] || null, {
+                  shouldValidate: true,
+                })
               }
               error={errors.idCardFront?.message}
             />
@@ -42,7 +44,9 @@ export const Step2Presentation = () => {
               label="ID Card Back"
               maxSize={5 * 1024 * 1024}
               onChange={(files) =>
-                setValue("idCardBack", files?.[0] || null, { shouldValidate: true })
+                setValue("idCardBack", files?.[0] || null, {
+                  shouldValidate: true,
+                })
               }
               error={errors.idCardBack?.message}
             />
