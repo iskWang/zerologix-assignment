@@ -7,7 +7,11 @@ const TenMB = 10 * 1024 * 1024; // 10MB
 export const basicInfoSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email format"),
-  phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number"),
+  phone: z.string().regex(
+    // Ref. https://ihateregex.io/expr/phone/
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+    "Invalid phone number"
+  ),
   address: z.string().min(1, "Address is required"),
   nationality: z.string().min(1, "Nationality is required"),
   gender: z.string().optional(),
